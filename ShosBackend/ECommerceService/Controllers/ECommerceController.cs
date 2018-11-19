@@ -1,6 +1,6 @@
-﻿using ShosBackend.DataObjects.Requests;
+﻿using ShosBackend.Common.ExtensionMethods;
+using ShosBackend.DataObjects.Requests;
 using ShosBackend.DataObjects.Responses;
-using ShosBackend.UtilsService.ExtensionMethods;
 using System.Web.Http;
 
 
