@@ -1,7 +1,8 @@
-﻿using DataObjects.Requests;
-using DataObjects.Responses;
+﻿using ShosBackend.DataObjects.Requests;
+using ShosBackend.DataObjects.Responses;
+using ShosBackend.UtilsService.ExtensionMethods;
 using System.Web.Http;
-using UtilsService.ExtensionMethods;
+
 
 namespace ECommerceService.Controllers
 {

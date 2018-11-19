@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/166438/what-would-a-log4net-wrapper-class-look-like
