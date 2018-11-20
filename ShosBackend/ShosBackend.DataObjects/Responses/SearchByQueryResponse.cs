@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShosBackend.DataObjects.ECommerce;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,6 @@ namespace ShosBackend.DataObjects.Responses
     public class SearchByQueryResponse
     {
         public bool IsSuccess { get; set; }
+        public List<SearchResult> SearchResults { get; set; }
     }
 }
