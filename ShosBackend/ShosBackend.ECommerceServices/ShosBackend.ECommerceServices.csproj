@@ -43,10 +43,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\AmazonSearchService.cs" />
     <Compile Include="Search\EbaySearchService.cs" />
     <Compile Include="Search\SearchService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApiClient\ApiClient.csproj">
+      <Project>{71E4E5BB-7178-4EB5-B0C9-846381589AFC}</Project>
+      <Name>ApiClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShosBackend.Common\ShosBackend.Common.csproj">
+      <Project>{A32FA2B2-B46E-4DBC-B061-113F0165C3FE}</Project>
+      <Name>ShosBackend.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShosBackend.DataObjects\ShosBackend.DataObjects.csproj">
       <Project>{8F42C680-88C5-4E26-A480-E540FB64CD18}</Project>
       <Name>ShosBackend.DataObjects</Name>
@@ -60,8 +69,6 @@
       <Name>ShosBackend.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Search\Engine\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

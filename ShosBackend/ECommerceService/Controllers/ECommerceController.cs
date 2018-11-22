@@ -21,9 +21,10 @@ namespace ECommerceService.Controllers
         [HttpGet]
         public SearchByQueryResponse SearchAmazon(SearchByQueryRequest request)
         {
-            if (request == null || request.SearchQuery.IsNullOrEmpty())
-                return new SearchByQueryResponse { IsSuccess = false };
-            return new SearchByQueryResponse { IsSuccess = true };
+            var searchService = _SearchServices.First
+                (service => service.CanProvide(ECommerceWebSite.Amazon));
+
+            return searchService.Search(request);
         }
 
         [Route("search/ebay")]

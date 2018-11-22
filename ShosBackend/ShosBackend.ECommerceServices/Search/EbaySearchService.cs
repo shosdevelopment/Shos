@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ShosBackend.DataObjects.ECommerce;
 using ShosBackend.DataObjects.Enums;
 using ShosBackend.DataObjects.Requests;
 using ShosBackend.DataObjects.Responses;
