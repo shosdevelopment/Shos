@@ -38,7 +38,7 @@ namespace ShosBackend.ECommerceServices.Search
                 return new SearchByQueryResponse
                 {
                     IsSuccess = true,
-                    SearchResults = new List<DataObjects.ECommerce.SearchResult>()
+                    SearchResult = new DataObjects.ECommerce.SearchResult()
                 };
             }
             catch (Exception ex)

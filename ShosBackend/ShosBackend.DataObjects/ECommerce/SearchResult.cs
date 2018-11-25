@@ -8,12 +8,8 @@ namespace ShosBackend.DataObjects.ECommerce
 {
     public class SearchResult
     {
-        public int ItemId { get; set; }
+        public int TotalProducts { get; set; }
 
-        public string Title { get; set; }
-
-        public decimal Price { get; set; }
-
-        public string SourceWebsite { get; set; }
+        public List<ProductResult> Products { get; set; }
     }
 }

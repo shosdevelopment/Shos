@@ -10,6 +10,7 @@ namespace ShosBackend.DataObjects.Responses
     public class SearchByQueryResponse
     {
         public bool IsSuccess { get; set; }
-        public List<SearchResult> SearchResults { get; set; }
+
+        public SearchResult SearchResult { get; set; }
     }
 }

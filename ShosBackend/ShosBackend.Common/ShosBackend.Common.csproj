@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiClient\AliExpressSearchApiClientSettings.cs" />
     <Compile Include="ApiClient\AmazonSearchApiClientSettings.cs" />
     <Compile Include="Enums\CountryEnums.cs" />
     <Compile Include="Enums\LogerEnums.cs" />
