@@ -8,6 +8,7 @@ using ShosBackend.DataObjects.Enums;
 
 namespace ECommerceService.Controllers
 {
+    [RoutePrefix("search")]
     public class ECommerceController : ApiController
     {
         private readonly ISearchService[] _SearchServices;
@@ -17,9 +18,9 @@ namespace ECommerceService.Controllers
             _SearchServices = searchServices;
         }
 
-        [Route("search/amazon")]
+        [Route("amazon")]
         [HttpGet]
-        public SearchByQueryResponse SearchAmazon(SearchByQueryRequest request)
+        public SearchByQueryResponse SearchAmazon([FromUri] SearchByQueryRequest request)
         {
             var searchService = _SearchServices.First
                 (service => service.CanProvide(ECommerceWebSite.Amazon));
@@ -27,9 +28,9 @@ namespace ECommerceService.Controllers
             return searchService.Search(request);
         }
 
-        [Route("search/ebay")]
+        [Route("ebay")]
         [HttpGet]
-        public SearchByQueryResponse SearchEbay(SearchByQueryRequest request)
+        public SearchByQueryResponse SearchEbay([FromUri] SearchByQueryRequest request)
         {
             var searchService = _SearchServices.First
                 (service => service.CanProvide(ECommerceWebSite.Ebay));
