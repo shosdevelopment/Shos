@@ -37,7 +37,7 @@ namespace ShosBackend.ECommerceServices.Search
             }).ResponseContent;
 
             if (apiResult == null) return new SearchByQueryResponse { IsSuccess = false };
-            return new SearchByQueryResponse { IsSuccess = true }
+            return new SearchByQueryResponse { IsSuccess = true };
         }
 
         public override bool CanProvide(ECommerceWebSite eCommerceWebSite)
