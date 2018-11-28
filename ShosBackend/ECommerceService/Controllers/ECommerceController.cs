@@ -20,7 +20,7 @@ namespace ECommerceService.Controllers
 
         [Route("amazon")]
         [HttpGet]
-        public SearchByQueryResponse SearchAmazon([FromUri] SearchByQueryRequest request)
+        public SearchByQueryResponse SearchAmazon([FromUri]SearchByQueryRequest request)
         {
             var searchService = _SearchServices.First
                 (service => service.CanProvide(ECommerceWebSite.Amazon));
@@ -30,7 +30,7 @@ namespace ECommerceService.Controllers
 
         [Route("ebay")]
         [HttpGet]
-        public SearchByQueryResponse SearchEbay([FromUri] SearchByQueryRequest request)
+        public SearchByQueryResponse SearchEbay([FromUri]SearchByQueryRequest request)
         {
             var searchService = _SearchServices.First
                 (service => service.CanProvide(ECommerceWebSite.Ebay));
