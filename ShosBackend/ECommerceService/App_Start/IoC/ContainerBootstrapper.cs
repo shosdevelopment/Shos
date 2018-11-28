@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Web.Http;
 using System.Web.Mvc;
 using Castle.Facilities.Logging;
@@ -11,43 +11,43 @@ using ShosBackend.Common.IoC;
 
 namespace ECommerceService.App_Start.IoC
 {
-	public class ContainerBootstrapper : IContainerAccessor, IDisposable
-	{
-		ContainerBootstrapper(IWindsorContainer container)
-		{
-			Container = container;
-		}
+    public class ContainerBootstrapper : IContainerAccessor, IDisposable
+    {
+        ContainerBootstrapper(IWindsorContainer container)
+        {
+            Container = container;
+        }
 
-		public IWindsorContainer Container { get; }
+        public IWindsorContainer Container { get; }
 
-		public static ContainerBootstrapper Bootstrap()
-		{
-			var container = new WindsorContainer();
+        public static ContainerBootstrapper Bootstrap()
+        {
+            var container = new WindsorContainer();
 
-			container.Kernel.Resolver.AddSubResolver(new ArrayResolver(container.Kernel, true));
+            container.Kernel.Resolver.AddSubResolver(new ArrayResolver(container.Kernel, true));
 
-			container
-				.Install(FromAssembly.Containing<CommonInstaller>())
-				.Install(FromAssembly.This());
-			
-			container.AddFacility<LoggingFacility>(f => f.LogUsing<Log4netFactory>().WithConfig("log4net.config"));
+            container
+                .Install(FromAssembly.Containing<CommonInstaller>())
+                .Install(FromAssembly.This());
 
-			var mvcControllerFactory = new WindsorControllerFactory(container);
+            container.AddFacility<LoggingFacility>(f => f.LogUsing<Log4netFactory>().WithConfig("log4net.config"));
 
-			ControllerBuilder.Current.SetControllerFactory(mvcControllerFactory);
+            var mvcControllerFactory = new WindsorControllerFactory(container);
 
-			var dependencyResolver = new WindsorDependencyResolver(container.Kernel);
+            ControllerBuilder.Current.SetControllerFactory(mvcControllerFactory);
 
-			GlobalConfiguration.Configuration.DependencyResolver = dependencyResolver;
+            var dependencyResolver = new WindsorDependencyResolver(container.Kernel);
 
-			DependencyResolver.SetResolver(dependencyResolver);
+            GlobalConfiguration.Configuration.DependencyResolver = dependencyResolver;
 
-			return new ContainerBootstrapper(container);
-		}
+            DependencyResolver.SetResolver(dependencyResolver);
 
-		public void Dispose()
-		{
-			Container.Dispose();
-		}
-	}
+            return new ContainerBootstrapper(container);
+        }
+
+        public void Dispose()
+        {
+            Container.Dispose();
+        }
+    }
 }

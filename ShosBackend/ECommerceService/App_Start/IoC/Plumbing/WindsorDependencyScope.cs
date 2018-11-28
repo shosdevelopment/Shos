@@ -7,30 +7,30 @@ using Castle.MicroKernel.Lifestyle;
 
 namespace ECommerceService.App_Start.IoC.Plumbing
 {
-	public class WindsorDependencyScope : IDependencyScope
-	{
-		private readonly IKernel _container;
-		private readonly IDisposable _scope;
+    public class WindsorDependencyScope : IDependencyScope
+    {
+        private readonly IKernel _container;
+        private readonly IDisposable _scope;
 
-		public WindsorDependencyScope(IKernel container)
-		{
-			_container = container;
-			_scope = container.BeginScope();
-		}
+        public WindsorDependencyScope(IKernel container)
+        {
+            _container = container;
+            _scope = container.BeginScope();
+        }
 
-		public object GetService(Type serviceType)
-		{
-			return _container.HasComponent(serviceType) ? _container.Resolve(serviceType) : null;
-		}
+        public object GetService(Type serviceType)
+        {
+            return _container.HasComponent(serviceType) ? _container.Resolve(serviceType) : null;
+        }
 
-		public IEnumerable<object> GetServices(Type serviceType)
-		{
-			return _container.ResolveAll(serviceType).Cast<object>();
-		}
+        public IEnumerable<object> GetServices(Type serviceType)
+        {
+            return _container.ResolveAll(serviceType).Cast<object>();
+        }
 
-		public void Dispose()
-		{
-			_scope.Dispose();
-		}
-	}
+        public void Dispose()
+        {
+            _scope.Dispose();
+        }
+    }
 }
