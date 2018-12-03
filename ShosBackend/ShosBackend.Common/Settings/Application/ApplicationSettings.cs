@@ -11,6 +11,7 @@ namespace ShosBackend.Common.Settings.Application
     public interface IApplicationSettings
     {
         SystemEnvironment ThisEnvironment { get; }
+        string AliExpressApiDomain { get; }
     }
 
     public class ApplicationSettings : IApplicationSettings
@@ -23,5 +24,7 @@ namespace ShosBackend.Common.Settings.Application
         }
 
         public SystemEnvironment ThisEnvironment => EnumUtils.Parse<SystemEnvironment>(_configurationHelper.GetString("ThisEnvironment"));
+
+        public string AliExpressApiDomain => _configurationHelper.GetString("AliExpressApiDomain");
     }
 }
