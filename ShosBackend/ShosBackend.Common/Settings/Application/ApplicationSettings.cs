@@ -26,5 +26,7 @@ namespace ShosBackend.Common.Settings.Application
         public SystemEnvironment ThisEnvironment => EnumUtils.Parse<SystemEnvironment>(_configurationHelper.GetString("ThisEnvironment"));
 
         public string AliExpressApiDomain => _configurationHelper.GetString("AliExpressApiDomain");
+
+        public string AliExpressGetProductsByKeywordEndPoint => _configurationHelper.GetString("AliExpressGetProductsByKeywordEndPoint");
     }
 }
